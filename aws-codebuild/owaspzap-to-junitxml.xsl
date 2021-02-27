@@ -69,35 +69,13 @@
 						<xsl:attribute name="message">
 							<xsl:value-of select="desc"></xsl:value-of>
 						</xsl:attribute>
-						<xsl:text>
-							&lt;p&gt;
-							AlertRef: 
-							<xsl:value-of select="alertRef" />
-							&lt;/p&gt;
-						</xsl:text>
+						<xsl:value-of select="concat('&lt;p&gt; AlertRef:', alertRef,'&lt;/p&gt;')" />
+						<xsl:value-of select="concat('&lt;p&gt; Message', desc,'&lt;/p&gt;')" />
+						<xsl:value-of select="concat('&lt;p&gt;Solution', solution, '&lt;/p&gt;')" />
+						<xsl:for-each select="instances/instance">
+							<xsl:value-of select="concat('&lt;p&gt;', method, ' - ',uri, '&lt;/p&gt;')" />
+						</xsl:for-each>
 						
-						<xsl:text>
-							&lt;p&gt;
-							Message: 
-							<xsl:value-of select="desc" />
-							&lt;/p&gt;
-						</xsl:text>
-						<xsl:text>
-							&lt;p&gt;
-							Solution: 
-							<xsl:value-of select="solution" />
-							&lt;/p&gt;
-						</xsl:text>
-						
-						<xsl:text>
-							<xsl:for-each select="instances/instance">
-								&lt;p&gt;
-								<xsl:value-of select="method"></xsl:value-of>
-								<xsl:text> - </xsl:text>
-								<xsl:value-of select="uri"></xsl:value-of>
-								&lt;/p&gt;
-							</xsl:for-each>
-						</xsl:text>
 					</failure>
 				</testcase>
 			</xsl:for-each>
