@@ -57,7 +57,7 @@
 			</properties>
 			
 			<xsl:for-each select="site/alerts/alertitem">
-				<testcase time="">
+				<testcase time="0.0">
 					<xsl:attribute name="name">
 						<xsl:value-of select="name"></xsl:value-of>
 					</xsl:attribute>
