@@ -21,41 +21,41 @@
 			<xsl:attribute name="skipped">
 				<xsl:value-of select="0"></xsl:value-of>
 			</xsl:attribute>
-			
-			
+
+
 			<properties>
-    			<property name="name">
+				<property name="name">
 					<xsl:attribute name="value">
 						<xsl:value-of select="site/@name"></xsl:value-of>
 					</xsl:attribute>
-    			</property>
-    			<property name="host">
+				</property>
+				<property name="host">
 					<xsl:attribute name="value">
 						<xsl:value-of select="site/@host"></xsl:value-of>
 					</xsl:attribute>
-    			</property>
-    			<property name="port">
+				</property>
+				<property name="port">
 					<xsl:attribute name="value">
 						<xsl:value-of select="site/@port"></xsl:value-of>
 					</xsl:attribute>
-    			</property>
-    			<property name="ssl">
+				</property>
+				<property name="ssl">
 					<xsl:attribute name="value">
 						<xsl:value-of select="site/@ssl"></xsl:value-of>
 					</xsl:attribute>
-    			</property>
-    			<property name="version">
+				</property>
+				<property name="version">
 					<xsl:attribute name="value">
 						<xsl:value-of select="@version"></xsl:value-of>
 					</xsl:attribute>
-    			</property>
-    			<property name="generated">
+				</property>
+				<property name="generated">
 					<xsl:attribute name="value">
 						<xsl:value-of select="@generated"></xsl:value-of>
 					</xsl:attribute>
-    			</property>
+				</property>
 			</properties>
-			
+
 			<xsl:for-each select="site/alerts/alertitem">
 				<testcase time="0.0">
 					<xsl:attribute name="name">
@@ -69,6 +69,35 @@
 						<xsl:attribute name="message">
 							<xsl:value-of select="desc"></xsl:value-of>
 						</xsl:attribute>
+						<xsl:text>
+							&lt;p&gt;
+							AlertRef: 
+							<xsl:value-of select="alertRef" />
+							&lt;/p&gt;
+						</xsl:text>
+						
+						<xsl:text>
+							&lt;p&gt;
+							Message: 
+							<xsl:value-of select="desc" />
+							&lt;/p&gt;
+						</xsl:text>
+						<xsl:text>
+							&lt;p&gt;
+							Solution: 
+							<xsl:value-of select="solution" />
+							&lt;/p&gt;
+						</xsl:text>
+						
+						<xsl:text>
+							<xsl:for-each select="instances/instance">
+								&lt;p&gt;
+								<xsl:value-of select="method"></xsl:value-of>
+								<xsl:text> - </xsl:text>
+								<xsl:value-of select="uri"></xsl:value-of>
+								&lt;/p&gt;
+							</xsl:for-each>
+						</xsl:text>
 					</failure>
 				</testcase>
 			</xsl:for-each>
