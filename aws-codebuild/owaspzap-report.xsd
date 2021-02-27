@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!-- XML Schema Generated from XML Document on Sat Feb 27 2021 11:57:27 
+		GMT-0600 (Central Standard Time) -->
+	<!-- with XmlGrid.net Free Online Service http://xmlgrid.net -->
+	<xs:element name="OWASPZAPReport">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="site">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="alerts">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="alertitem" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="pluginid" type="xs:int"></xs:element>
+													<xs:element name="alertRef" type="xs:int"></xs:element>
+													<xs:element name="alert" type="xs:string"></xs:element>
+													<xs:element name="name" type="xs:string"></xs:element>
+													<xs:element name="riskcode" type="xs:int"></xs:element>
+													<xs:element name="confidence" type="xs:int"></xs:element>
+													<xs:element name="riskdesc" type="xs:string"></xs:element>
+													<xs:element name="desc" type="xs:string"></xs:element>
+													<xs:element name="instances">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="instance"
+																	maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="uri" type="xs:string"></xs:element>
+																			<xs:element name="method" type="xs:string"></xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="count" type="xs:int"></xs:element>
+													<xs:element name="solution" type="xs:string"></xs:element>
+													<xs:element name="reference" type="xs:string"></xs:element>
+													<xs:element name="cweid" type="xs:int"></xs:element>
+													<xs:element name="wascid" type="xs:int"></xs:element>
+													<xs:element name="sourceid" type="xs:int"></xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="name" type="xs:string"></xs:attribute>
+						<xs:attribute name="host" type="xs:string"></xs:attribute>
+						<xs:attribute name="port" type="xs:int"></xs:attribute>
+						<xs:attribute name="ssl" type="xs:string"></xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="version" type="xs:string"></xs:attribute>
+			<xs:attribute name="generated" type="xs:string"></xs:attribute>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
