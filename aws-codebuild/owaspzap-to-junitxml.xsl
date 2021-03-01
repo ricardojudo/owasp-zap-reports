@@ -66,15 +66,16 @@
 						<xsl:attribute name="type">
 							<xsl:value-of select="riskdesc"></xsl:value-of>
 						</xsl:attribute>
+						
+						<xsl:variable name="urls">
+							<xsl:for-each select="instances/instance">
+								<xsl:value-of select="concat( method, ' - ',uri, '; ')" />
+							</xsl:for-each>
+						</xsl:variable>
+						
 						<xsl:attribute name="message">
-							<xsl:value-of select="desc"></xsl:value-of>
+							<xsl:value-of select="concat('AlertRef - ', alertRef,'. Message - ',desc, '. Solution - ', solution, '. URLs - ', $urls)"></xsl:value-of>
 						</xsl:attribute>
-						<xsl:value-of select="concat('&lt;p&gt; AlertRef:', alertRef,'&lt;/p&gt;')" />
-						<xsl:value-of select="concat('&lt;p&gt; Message', desc,'&lt;/p&gt;')" />
-						<xsl:value-of select="concat('&lt;p&gt;Solution', solution, '&lt;/p&gt;')" />
-						<xsl:for-each select="instances/instance">
-							<xsl:value-of select="concat('&lt;p&gt;', method, ' - ',uri, '&lt;/p&gt;')" />
-						</xsl:for-each>
 						
 					</failure>
 				</testcase>
